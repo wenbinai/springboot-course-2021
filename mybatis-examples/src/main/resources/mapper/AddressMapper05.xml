@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.mybatisexamples.example05.AddressMapper05">
+    <resultMap id="addressDTOResultMap" type="com.example.mybatisexamples.example05.AddressDTO05">
+        <result column="id" property="id" />
+        <result column="detail" property="detail" />
+        <association property="user"
+                     columnPrefix="u_"
+                     resultMap="com.example.mybatisexamples.example05.UserMapper05.userResultMap" />
+    </resultMap>
+
+    <select id="listAddressDTOs" resultMap="addressDTOResultMap">
+        select a.*, u.id u_id, u.name u_name, u.company u_company, u.create_time u_createTime
+        from address a join user u on u.id = a.user_id
+        where a.detail=#{detail}
+    </select>
+</mapper>
