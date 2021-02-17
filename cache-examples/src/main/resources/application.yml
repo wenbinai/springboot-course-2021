@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: cache-examples
+  cache:
+    caffeine: # 在代码注入缓存管理器，此处配置无效
+      spec: expireAfterWrite=5s, maximumSize=200
+
+logging:
+  level:
+    root: warn
+    com:
+      example: debug
+  pattern:
+    console: '%-5level %C.%M[%line] - %msg%n'
