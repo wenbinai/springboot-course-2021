@@ -1,10 +1,10 @@
-package com.example.cacheexamples.controller;
+package com.example.redisexamples.controller;
 
-import com.example.cacheexamples.entity.User;
-import com.example.cacheexamples.service.UserService;
+import com.example.redisexamples.dto.UserDTO;
+import com.example.redisexamples.entity.User;
+import com.example.redisexamples.service.UserDTOService;
+import com.example.redisexamples.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.CacheManager;
-import org.springframework.cache.caffeine.CaffeineCacheManager;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -14,6 +14,10 @@ import java.util.List;
 public class MyController {
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private UserDTOService userDTOService;
+
     @GetMapping("users/{uid}")
     public User getUser(@PathVariable long uid) {
         return userService.getUser(uid);
@@ -30,5 +34,14 @@ public class MyController {
     @DeleteMapping("users/{uid}")
     public void delUser(@PathVariable long uid) {
         userService.delUser(uid);
+    }
+
+    @GetMapping("userdtos/{uid}")
+    public UserDTO getUserDTO(@PathVariable long uid) {
+        return userDTOService.getUserDTO(uid);
+    }
+    @PostMapping("userdto/{uid}")
+    public void postUser(@PathVariable long uid) {
+        userDTOService.updateUserDTO(uid);
     }
 }

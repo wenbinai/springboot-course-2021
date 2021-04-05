@@ -1,0 +1,17 @@
+GET http://localhost:8080/actuator
+
+###
+GET http://localhost:8080/actuator/metrics
+###
+GET http://localhost:8080/actuator/caches
+###
+GET http://localhost:8080/actuator/caches/user
+
+###
+GET http://localhost:8080/actuator/metrics/cache.gets
+###
+GET http://localhost:8080/actuator/metrics/cache.gets?tag=result:hit&tag=cache:user
+###
+GET http://localhost:8080/actuator/metrics/cache.gets?tag=result:miss&tag=cache:user
+###
+GET http://localhost:8080/actuator/metrics/cache.size

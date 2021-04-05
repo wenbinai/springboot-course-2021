@@ -1,0 +1,23 @@
+GET http://localhost:8080/api/users/1
+###
+GET http://localhost:8080/api/users/288
+###
+
+PATCH http://localhost:8080/api/users
+Content-Type: application/json
+
+{
+  "id": "1",
+  "name": "小明",
+  "detail": "956"
+}
+###
+DELETE http://localhost:8080/api/users/1
+###
+GET http://localhost:8080/api/users
+
+###
+GET http://localhost:8080/api/userdtos/1
+
+###
+POST http://localhost:8080/api/userdto/1

@@ -1,6 +1,9 @@
-package com.example.cacheexamples.mapper;
+package com.example.redisexamples.mapper;
 
-import com.example.cacheexamples.entity.User;
+
+import com.example.redisexamples.dto.UserDTO;
+import com.example.redisexamples.entity.User;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
@@ -8,6 +11,7 @@ import java.util.List;
 import java.util.Objects;
 
 @Repository
+@Slf4j
 public class UserMapper {
     private static final List<User> USERS;
     static {
@@ -32,7 +36,10 @@ public class UserMapper {
         }
         return user;
     }
+
     public List<User> listUsers() {
         return USERS;
     }
+
+
 }
