@@ -16,6 +16,7 @@
     <modules>
         <module>mybatis-examples</module>
         <module>cache-examples</module>
+        <module>redis-examples</module>
         <module>jpa-examples</module>
     </modules>
 
