@@ -3,9 +3,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.example</groupId>
-    <artifactId>mybatis-examples</artifactId>
+    <artifactId>jpa-examples</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>mybatis-examples</name>
+    <name>jpa-examples</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
@@ -18,13 +18,7 @@
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/com.baomidou/mybatis-plus-boot-starter -->
-        <dependency>
-            <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus-boot-starter</artifactId>
-            <version>3.4.2</version>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
 
         <dependency>
@@ -37,7 +31,6 @@
             <artifactId>lombok</artifactId>
             <optional>true</optional>
         </dependency>
-        <!-- junit-platform-launcher -->
         <dependency>
             <groupId>org.junit.platform</groupId>
             <artifactId>junit-platform-launcher</artifactId>
@@ -85,7 +78,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>2.3.7.RELEASE</version>
                 <configuration>
-                    <mainClass>com.example.mybatisexamples.MybatisExamplesApplication</mainClass>
+                    <mainClass>com.example.jpaexamples.JpaExamplesApplication</mainClass>
                 </configuration>
                 <executions>
                     <execution>
@@ -95,29 +88,6 @@
                         </goals>
                     </execution>
                 </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.mybatis.generator</groupId>
-                <artifactId>mybatis-generator-maven-plugin</artifactId>
-                <version>1.4.0</version>
-                <configuration>
-                    <!-- 执行时是否打印日志输出 -->
-                    <verbose>true</verbose>
-                    <!-- 生成java文件相同时是否覆盖原文件 -->
-                    <overwrite>true</overwrite>
-                </configuration>
-                <dependencies>
-                    <dependency>
-                        <groupId>com.github.bwhyman</groupId>
-                        <artifactId>mybatisplus-generator</artifactId>
-                        <version>1.0.4</version>
-                    </dependency>
-                    <dependency>
-                        <groupId>mysql</groupId>
-                        <artifactId>mysql-connector-java</artifactId>
-                        <version>8.0.22</version>
-                    </dependency>
-                </dependencies>
             </plugin>
         </plugins>
     </build>
