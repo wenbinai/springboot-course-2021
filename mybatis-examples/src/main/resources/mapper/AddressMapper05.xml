@@ -9,6 +9,7 @@
                      columnPrefix="u_"
                      resultMap="com.example.mybatisexamples.example05.UserMapper05.userResultMap" />
     </resultMap>
+    <resultMap id="addressResultMap" type="com.example.mybatisexamples.entity.Address" autoMapping="true" />
 
     <select id="listAddressDTOs" resultMap="addressDTOResultMap">
         select a.*, u.id u_id, u.name u_name, u.company u_company, u.create_time u_createTime
