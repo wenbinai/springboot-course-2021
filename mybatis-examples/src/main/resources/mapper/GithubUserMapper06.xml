@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.mybatisexamples.example06.GithubUserMapper06">
-    <resultMap id="githubUserResultMap"
-               type="com.example.mybatisexamples.entity.GithubUser"
-               autoMapping="true">
-    </resultMap>
+
     <select id="listByOptionals2"
             parameterType="com.example.mybatisexamples.example06.QueryOptional"
-            resultMap="githubUserResultMap">
+            resultType="com.example.mybatisexamples.entity.GithubUser">
         select * from github_user g where 1=1
         <if test="stars != null">
             and g.stars>=#{stars}
@@ -29,7 +26,7 @@
     <!-- where/if标签里，idea没有了数据段的自动提示，且<>需声明转义符 -->
     <!--<select id="listGits4"
             parameterType="com.example.mybatisexamples.example06.QueryOptional"
-            resultMap="githubUserResultMap">
+            resultType="com.example.mybatisexamples.entity.GithubUser">
         select * from github_user g
         <where>
             <if test="followers != null">

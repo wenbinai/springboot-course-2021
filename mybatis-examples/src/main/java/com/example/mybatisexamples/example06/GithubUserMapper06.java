@@ -9,6 +9,7 @@ import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 @Mapper
@@ -34,14 +35,12 @@ public interface GithubUserMapper06 extends BaseMapper<GithubUser> {
         if (optionals.getFollowers() != null) {
             qw.ge(GithubUser::getFollowers, optionals.getFollowers());
         }
-        if (optionals.getGender() != null) {
-            qw.eq(GithubUser::getGender, optionals.getGender());
-        }
+        // 3参数方法，可不写if判断
+        qw.eq(optionals.getGender() != null,
+                GithubUser::getGender,
+                optionals.getGender());
         return selectList(qw);
     }
-
     List<GithubUser> listByOptionals2(QueryOptional optionals);
 
-    List<GithubUser> listGits2(@Param("stars") Integer stars,
-                               @Param("followers") Integer followers);
 }

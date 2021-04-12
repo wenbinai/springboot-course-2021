@@ -28,15 +28,12 @@
             <!-- 使用java8日期时间接口 -->
             <property name="useJSR310Types" value="true" />
         </javaTypeResolver>
-
+        <!-- 声明生成的model包位置 -->
         <javaModelGenerator
                 targetPackage="com.example.mybatisexamples.entity"
                 targetProject="src/main/java" />
-
-<!--        <sqlMapGenerator targetPackage="mapper" targetProject="src/main/resources">-->
-<!--            &lt;!&ndash; 在targetPackage的基础上，根据数据库的schema再生成一层package，最终生成的类放在这个package下，默认为false &ndash;&gt;-->
-<!--        </sqlMapGenerator>-->
         <!-- 基于MyBatis3DynamicSql此处无效 -->
+        <!-- 声明生成的mapper包位置 -->
         <javaClientGenerator
                 type="ANNOTATEDMAPPER"
                 targetPackage="com.example.mybatisexamples.mapper"
