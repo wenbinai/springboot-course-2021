@@ -33,10 +33,4 @@ public interface UserMapper05 extends BaseMapper<User> {
 
     // SQL语句映射等，声明在xml里
     UserDTO05 getByXML2(long uid);
-
-    //
-    @Select("select * " +
-            "from user u join address a on u.id=a.user_id " +
-            "where u.id=#{uid}")
-    List<Map<String, Object>> getReturnMap(long uid);
 }

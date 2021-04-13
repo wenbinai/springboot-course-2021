@@ -6,14 +6,12 @@
         <id column="id" property="id" />
         <result column="name" property="name" />
         <result column="company" property="company" />
+        <!-- ofType，声明集合中元素类型；自动去掉前缀映射；无需声明集合类型 -->
         <collection property="addresses"
                     columnPrefix="a_"
-                    resultMap="com.example.mybatisexamples.example05.AddressMapper05.addressResultMap">
+                    ofType="com.example.mybatisexamples.entity.Address"
+                    autoMapping="true">
         </collection>
-    </resultMap>
-    <resultMap id="userResultMap"
-               type="com.example.mybatisexamples.entity.User"
-               autoMapping="true">
     </resultMap>
     <!-- 在接口中声明ID同名方法。 -->
     <select id="getByXML2" resultMap="userDTOResultMap">
