@@ -47,13 +47,19 @@ Web系统框架，是东北林业大学软件工程专业第6学期的一门专�
 - VueX 4.0.0
 - Axios 0.21
 - Git 2.30
-- MySQL 8.0.21
+- MySQL 8.0.22
 
 #### Example Collections
 课程代码由单工程多模块组成：按顺序学习
 - /mybatis-examples
+- /spring-examples
+- /springmvc-examples  
 - /cache-examples
 - /redis-examples
+- /jpa-examples
 
 ### Program Details
 - [在线课程](https://mooc1-1.chaoxing.com/course/208931964.html)
+
+### Vue3-Examples
+ - https://github.com/bwhyman/vue3-examples

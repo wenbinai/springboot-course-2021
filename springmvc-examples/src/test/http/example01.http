@@ -1,0 +1,31 @@
+POST http://localhost:8080/api/example01/addresses02
+Content-Type: application/json
+
+{
+  "detail": "956",
+  "comment": "aasdfsdf",
+  "user": {
+    "id": 10
+  }
+}
+
+###
+GET http://localhost:8080/api/example01/addresses/1
+
+###
+GET http://localhost:8080/api/example01/index
+
+###
+GET http://localhost:8080/api/example01/addresses
+
+###
+POST http://localhost:8080/api/example01/addresses
+Content-Type: application/json
+
+{
+  "detail": "956",
+  "comment": "aasdfsdf"
+}
+
+###
+

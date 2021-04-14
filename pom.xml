@@ -19,6 +19,7 @@
         <module>redis-examples</module>
         <module>jpa-examples</module>
         <module>spring-examples</module>
+        <module>springmvc-examples</module>
     </modules>
 
 </project>
