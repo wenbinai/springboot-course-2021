@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: spring-examples
+
+logging:
+  level:
+    root: warn
+    com:
+      example: debug
+  pattern:
+    console: '%-5level %C.%M[%line] - %msg%n'

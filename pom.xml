@@ -18,6 +18,7 @@
         <module>cache-examples</module>
         <module>redis-examples</module>
         <module>jpa-examples</module>
+        <module>spring-examples</module>
     </modules>
 
 </project>
