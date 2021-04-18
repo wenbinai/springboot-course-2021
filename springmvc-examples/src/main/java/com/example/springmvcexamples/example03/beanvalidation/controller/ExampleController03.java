@@ -1,6 +1,6 @@
 package com.example.springmvcexamples.example03.beanvalidation.controller;
 
-import com.example.springmvcexamples.example03.beanvalidation.entity.User;
+import com.example.springmvcexamples.example03.beanvalidation.entity.User03;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -15,7 +15,7 @@ import javax.validation.constraints.Size;
 public class ExampleController03 {
 
     @PostMapping("users")
-    public void postUser(@Valid @RequestBody User user) {
+    public void postUser(@Valid @RequestBody User03 user) {
     }
 
     @GetMapping("users/{uid}/file")

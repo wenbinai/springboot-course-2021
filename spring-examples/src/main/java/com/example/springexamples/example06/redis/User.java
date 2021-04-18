@@ -1,4 +1,4 @@
-package com.example.springexamples.example05.redis;
+package com.example.springexamples.example06.redis;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

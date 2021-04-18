@@ -1,4 +1,4 @@
-package com.example.springexamples.example05.redis;
+package com.example.springexamples.example06.redis;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
@@ -16,9 +16,6 @@ import org.springframework.expression.spel.support.StandardEvaluationContext;
 import org.springframework.stereotype.Component;
 
 import java.lang.reflect.Method;
-import java.time.Duration;
-import java.time.temporal.TemporalUnit;
-import java.util.concurrent.TimeUnit;
 
 @Component
 @Aspect

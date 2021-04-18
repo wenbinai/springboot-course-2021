@@ -2,7 +2,7 @@ spring:
   application:
     name: springmvc-examples
   jackson:
-    default-property-inclusion: non_null
+    default-property-inclusion: non_null # 序列化时忽略空值属性
 server:
   port: 8080
 logging:

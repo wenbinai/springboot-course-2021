@@ -6,11 +6,11 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
-import org.springframework.http.HttpStatus;
 import org.springframework.security.crypto.encrypt.Encryptors;
 import org.springframework.security.crypto.encrypt.TextEncryptor;
 import org.springframework.stereotype.Component;
-import org.springframework.web.server.ResponseStatusException;
+
+import java.util.Map;
 
 @Component
 public class EncryptComponent05 {
@@ -32,17 +32,11 @@ public class EncryptComponent05 {
         return Encryptors.text(secretKey, salt);
     }
 
-    /**
-     * 无法加密，程序有错误，必须解决
-     * @param token
-     * @return
-     */
-    public String encryptToken(MyToken token) {
+    public String encrypt(Map<String, Object> payload) {
         try {
-            String json = objectMapper.writeValueAsString(token);
+            String json = objectMapper.writeValueAsString(payload);
             return encryptor.encrypt(json);
         } catch (JsonProcessingException e) {
-            e.printStackTrace();
             throw new MyException(500, "服务器端错误");
         }
     }
@@ -52,14 +46,12 @@ public class EncryptComponent05 {
      * @param auth
      * @return
      */
-    public MyToken decryptToken(String auth) {
+    public Map<String, Object> decrypt(String auth) {
         try {
             String json = encryptor.decrypt(auth);
-            return objectMapper.readValue(json, MyToken.class);
+            return objectMapper.readValue(json, Map.class);
         } catch (Exception e) {
             throw new MyException(403, "无权限");
         }
     }
-
-
 }

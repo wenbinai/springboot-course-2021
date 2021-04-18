@@ -1,11 +1,12 @@
 package com.example.springmvcexamples.example05;
 
 import com.example.springmvcexamples.example05.textencryptor.EncryptComponent05;
-import com.example.springmvcexamples.example05.textencryptor.MyToken;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+
+import java.util.Map;
 
 @SpringBootTest
 @Slf4j
@@ -14,22 +15,19 @@ public class TextEncryptorTest {
     private EncryptComponent05 encrypt;
     @Test
     public void test_encrypt() {
-        MyToken token = new MyToken();
-        token.setUid(1);
-        token.setRole(MyToken.Role.ADMIN);
-        String r = encrypt.encryptToken(token);
+        Map<String, Object> map = Map.of("uid", 24, "role", "admin");
+        String r = encrypt.encrypt(map);
         log.debug(r);
         log.debug("{}", r.length());
-        log.debug(encrypt.encryptToken(token));
+        log.debug(encrypt.encrypt(map));
     }
 
     @Test
     public void test_decrypt() {
-        String auth = "744193c872b677aab12a0ced447882f4cf9fc" +
-                "a92a09d428a26ed145ed2ed2eec665c8824ebc353042ba2be136efcb5c6";
-        MyToken token = encrypt.decryptToken(auth);
-
-        log.debug("{}", token.getUid());
-        log.debug("{}", token.getRole());
+        String auth = "fc2624419fae90bc4c7c7a4759ca5e8446e5fa99" +
+                "5e8c1de47fc7c9488db14b8c90f5ac3804136c809e8ad712ae8fe8ae";
+        Map<String, Object> token = encrypt.decrypt(auth);
+        log.debug("{}", token.get("uid"));
+        log.debug("{}", token.get("role"));
     }
 }

@@ -1,7 +1,7 @@
 package com.example.springmvcexamples.example04.passwordencoder.controller;
 
 
-import com.example.springmvcexamples.example04.passwordencoder.entity.User;
+import com.example.springmvcexamples.example04.passwordencoder.entity.User04;
 import com.example.springmvcexamples.example04.passwordencoder.service.UserService04;
 import com.example.springmvcexamples.vo.ResultVO;
 import lombok.extern.slf4j.Slf4j;
@@ -24,9 +24,9 @@ public class ExampleController04 {
     private PasswordEncoder passwordEncoder;
 
     @PostMapping("login")
-    public ResultVO login(@RequestBody User user) {
+    public ResultVO login(@RequestBody User04 user) {
         // 先查询用户是否存在
-        User u = userService.getUser(user.getUserName());
+        User04 u = userService.getUser(user.getUserName());
         if (u == null || !passwordEncoder.matches(user.getPassword(), u.getPassword())) {
             log.debug("登录失败");
             return ResultVO.error(401, "用户名密码错误");

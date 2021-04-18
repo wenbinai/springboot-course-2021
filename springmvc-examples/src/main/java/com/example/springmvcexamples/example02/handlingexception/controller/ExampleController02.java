@@ -17,13 +17,13 @@ public class ExampleController02 {
 
     @GetMapping("exception")
     public void getException() {
-        userService02.addFile();
+        userService02.readFile();
     }
 
     @PostMapping("login")
     public ResultVO login(@RequestBody User user) {
         if (!("BO".equals(user.getUserName()) && "123456".equals(user.getPassword()))) {
-            return ResultVO.error(401, "用户名密码错误");
+            return ResultVO.error(401, "用户名密码错误a");
         }
         return ResultVO.success(Map.of());
     }

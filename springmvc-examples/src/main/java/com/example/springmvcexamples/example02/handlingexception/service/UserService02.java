@@ -13,11 +13,11 @@ import java.nio.file.Path;
 @Service
 @Slf4j
 public class UserService02 {
-    public void addFile() {
+    public void readFile() {
         try {
             Files.readString(Path.of("A:/aa.aa"));
         } catch (IOException e) {
-            throw new MyException("读取文件错误！" + e.getMessage());
+            throw new MyException(500, "读取文件错误！" + e.getMessage());
         }
     }
 }

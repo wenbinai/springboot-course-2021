@@ -1,4 +1,4 @@
-package com.example.springexamples.example05.redis;
+package com.example.springexamples.example06.redis;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -7,7 +7,7 @@ import java.util.List;
 
 @Service
 @Slf4j
-public class UserService05 {
+public class UserService06 {
     // idea不支持自定义注解中SpEL的自动提示
     @RedisCache(value = "user", key = "#uid")
     public User getUser(long uid) {

@@ -83,7 +83,7 @@ public class ExceptionController03 {
         StringBuilder strBuilder = new StringBuilder();
         Set<ConstraintViolation<?>> violations = exception.getConstraintViolations();
         violations.forEach(v -> {
-            strBuilder.append(v.getMessage() + "; ");
+            strBuilder.append(v.getMessage()).append("; ");
         });
         return ResultVO.error(400, strBuilder.toString());
     }

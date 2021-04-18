@@ -13,7 +13,7 @@ import javax.validation.constraints.Size;
 @Getter
 @Setter
 @NoArgsConstructor
-public class User {
+public class User03 {
     private int id;
     @Size(min = 2, max = 6,
             message = "您输入的值为${validatedValue}，用户名长度必须大于{min}，小于{max}")

@@ -1,6 +1,11 @@
 spring:
   application:
     name: spring-examples
+  datasource:
+    url: 'jdbc:mysql://114.116.213.241:3306/2046204600?serverTimezone=Asia/Shanghai'
+    username: 2046204600
+    password: 2046204600
+    driver-class-name: com.mysql.cj.jdbc.Driver
 
 logging:
   level:

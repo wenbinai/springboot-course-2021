@@ -1,10 +1,16 @@
 package com.example.springmvcexamples.example04.passwordencoder.entity;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
-public class User {
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
+public class User04 {
     private String userName;
     private String password;
 }
