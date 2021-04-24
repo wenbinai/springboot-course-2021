@@ -1,0 +1,25 @@
+version: '3.7'
+services:
+  backend-openjdk:
+    image: openjdk:11
+    ports:
+    - 8080:8080
+    volumes:
+    - ./:/home/
+    command: java -jar /home/backend-examples-0.0.1-SNAPSHOT.jar --spring.profiles.active=prod
+    environment:
+      - dhost=backend-mysql:3306
+      - username=root
+      - password=root
+    depends_on:
+      - backend-mysql
+
+  backend-mysql:
+    image: mysql:8
+    ports:
+    - 3306
+    volumes:
+    - ./mysql/data/:/var/lib/mysql/
+    environment:
+      TZ: Asia/Shanghai
+      MYSQL_ROOT_PASSWORD: root

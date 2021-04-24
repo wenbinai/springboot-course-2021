@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.backendexamples.mapper.StudentMapper">
+
+    <select id="list" resultType="com.example.backendexamples.dto.StudentDTO">
+        select s.*,
+               u.name
+               from student s join user u on s.id=u.id
+    </select>
+</mapper>

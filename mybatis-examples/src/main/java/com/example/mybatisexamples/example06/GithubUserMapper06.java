@@ -21,7 +21,7 @@ public interface GithubUserMapper06 extends BaseMapper<GithubUser> {
      * @return
      */
     default List<GithubUser> listByOptionals(QueryOptional optionals) {
-        LambdaQueryWrapper<GithubUser> qw = new QueryWrapper<GithubUser>().lambda();
+        LambdaQueryWrapper<GithubUser> qw = new LambdaQueryWrapper<>();
         // 不成立则不会拼接查询条件
         if(optionals.getStars() != null) {
             qw.ge(GithubUser::getStars, optionals.getStars());

@@ -1,0 +1,44 @@
+spring:
+  application:
+    name: backend-examples
+  datasource: # 2046204601数据库为单独的整合测试数据库
+    url: 'jdbc:mysql://114.116.213.241:3306/2046204601?
+          createDatabaseIfNotExist=true
+          &serverTimezone=Asia/Shanghai'
+    username: 2046204601
+    password: 2046204601
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    initialization-mode: always
+  jackson:
+    default-property-inclusion: non_null
+  cache:
+    caffeine: # 在代码注入缓存管理器，此处配置无效
+      spec: expireAfterWrite=1d, maximumSize=200
+
+logging:
+  level:
+    root: warn
+    com:
+      example: debug
+  pattern:
+    console: '%-5level %C.%M[%line] - %msg%n'
+
+my:
+  secretkey: R28K42ZEJ8LWRHU5
+  salt: 636eac2534bcfcb0
+
+---
+spring:
+  profiles: prod
+  datasource:
+    url: jdbc:mysql://${dhost}/backend?createDatabaseIfNotExist=true&serverTimezone=Asia/Shanghai
+    username: ${username}
+    password: ${password}
+
+logging:
+  level:
+    com:
+      example: info
+  pattern:
+    console: '%-5level %C.%M[%line] - %msg%n'
+

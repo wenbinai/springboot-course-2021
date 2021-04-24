@@ -1,0 +1,8 @@
+PATCH http://localhost:8080/api/common/password
+Content-Type: application/json
+token: 767e6c280c4a1b42e42c02bb6ec4c53cba2626c6c9d043f3b1f56f950b526a7e45b78b42215383b663bb70ca15ec3a14f571293ed3c70f855a94353e69e5c104
+
+{
+  "password": "123456"
+}
+###
