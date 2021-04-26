@@ -7,7 +7,7 @@ http://114.116.213.241:8080/swagger-ui/index.html
 超管账号初始化用户名密码：admin/admin  
 
 修改vue.config.js文件，添加请求代理设置，在开发环境下由vue实现跨域请求，生产环境下无效。  
-注释掉main.ts中的mock启动代码  
+注释掉main.ts中的mock启动代码，或在mock过滤/api/请求前缀    
 vue example中创建组件，完成基本的前后端联调  
 通过swagger查看API接口的请求类型/参数等  
 例如，/api/welcome，为无需登录的请求  

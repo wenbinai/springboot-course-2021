@@ -21,10 +21,16 @@ public class TeacherController {
     @Autowired
     private UserService userService;
 
-    @ApiOperation("获取当前登录教师的全部课程")
+    @ApiOperation("添加课程，并返回当前教师全部课程")
     @PostMapping("courses")
     public ResultVO postCourse(@RequestBody Course course, @RequestAttribute("uid") long uid) {
         courseService.addCourse(course, uid);
+        return ResultVO.success(Map.of("courses", courseService.listCoursesByTid(uid)));
+    }
+
+    @ApiOperation("获取当前教师全部课程")
+    @GetMapping("courses")
+    public ResultVO getCourses(@RequestAttribute("uid") long uid) {
         return ResultVO.success(Map.of("courses", courseService.listCoursesByTid(uid)));
     }
 
