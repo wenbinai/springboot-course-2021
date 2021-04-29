@@ -26,7 +26,7 @@ public class EncryptorTest {
     public void test_encrypt() {
         TextEncryptor encryptor = Encryptors.text(secretKey, salt);
         try {
-            Map<String, Object> map = Map.of("uid", 24, "role", "admin");
+            Map<String, Object> map = Map.of("uid", 1384896304762638307L, "role", 9);
             String json = objectMapper.writeValueAsString(map);
             String r = encryptor.encrypt(json);
             log.debug(r);

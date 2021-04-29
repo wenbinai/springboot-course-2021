@@ -15,7 +15,7 @@ public class TextEncryptorTest {
     private EncryptComponent05 encrypt;
     @Test
     public void test_encrypt() {
-        Map<String, Object> map = Map.of("uid", 24, "role", "admin");
+        Map<String, Object> map = Map.of("uid", 1384896304762638307L, "role", 9);
         String r = encrypt.encrypt(map);
         log.debug(r);
         log.debug("{}", r.length());
@@ -24,8 +24,8 @@ public class TextEncryptorTest {
 
     @Test
     public void test_decrypt() {
-        String auth = "fc2624419fae90bc4c7c7a4759ca5e8446e5fa99" +
-                "5e8c1de47fc7c9488db14b8c90f5ac3804136c809e8ad712ae8fe8ae";
+        String auth = "b3a60e67dfcd220874e36569f623829ea97d556d646b4eb208c2f43" +
+                "b452bbf61a3e5982e0a52810517bcc734a5561e2dc53a9e3854d5fd4afebf0b15b7c1ad5c";
         Map<String, Object> token = encrypt.decrypt(auth);
         log.debug("{}", token.get("uid"));
         log.debug("{}", token.get("role"));

@@ -13,5 +13,5 @@ public @interface RedisCache {
     String value();
     String key() default "";
     TimeUnit timeUnit() default TimeUnit.MINUTES;
-    long ttl() default 0;
+    long ttl() default 5;
 }

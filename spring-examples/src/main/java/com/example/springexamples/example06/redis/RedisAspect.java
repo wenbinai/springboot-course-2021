@@ -37,40 +37,47 @@ public class RedisAspect {
             redKey = redKey + "::" + id;
         }
         String redisValue = template.opsForValue().get(redKey);
-        Object result = null;
+        Object returning;
         if (redisValue != null) {
             // redis中存在，反序列化
-            result = mapper.readValue(redisValue, mapper.constructType(method.getGenericReturnType()));
+            returning = mapper.readValue(redisValue, mapper.constructType(method.getGenericReturnType()));
         } else {
             // 不存在，执行被切方法，将方法返回结果序列化，置于redis
-            result = joinPoint.proceed();
+            returning = joinPoint.proceed();
             long time = redAn.ttl();
+            String json = mapper.writeValueAsString(returning);
             if (time == 0) {
-                template.opsForValue().set(redKey, mapper.writeValueAsString(result));
+                template.opsForValue().set(redKey, json);
             } else {
-                template.opsForValue().set(redKey, mapper.writeValueAsString(result), time, redAn.timeUnit());
+                template.opsForValue().set(redKey, json, time, redAn.timeUnit());
             }
          }
-        return result;
+        return returning;
     }
     @AfterReturning(value = "@annotation(redAn)", returning = "returning")
     public void redisPut(JoinPoint joinPoint, RedisPut redAn, Object returning) throws Throwable {
-        Method method = getMethod(joinPoint);
         String redKey = redAn.value();
         String key = redAn.key();
         if (!key.equals("")) {
-            String id = getSpEL(redAn.key(), method, joinPoint.getArgs());
+            String id = getSpEL(redAn.key(), getMethod(joinPoint), joinPoint.getArgs());
             redKey = redKey + "::" + id;
         }
-        template.opsForValue().set(redKey, mapper.writeValueAsString(returning));
+        long time = redAn.ttl();
+        String json = mapper.writeValueAsString(returning);
+        if (time == 0) {
+            template.opsForValue().set(redKey, json);
+        } else {
+            template.opsForValue().set(redKey, json, time, redAn.timeUnit());
+        }
+        
     }
+
     @AfterReturning(value = "@annotation(redAn)")
-    public void redisEvict(JoinPoint joinPoint, RedisEvict redAn) throws Throwable {
-        Method method = getMethod(joinPoint);
+    public void redisEvict(JoinPoint joinPoint, RedisEvict redAn) {
         String redKey = redAn.value();
         String key = redAn.key();
         if (!key.equals("")) {
-            String id = getSpEL(redAn.key(), method, joinPoint.getArgs());
+            String id = getSpEL(redAn.key(), getMethod(joinPoint), joinPoint.getArgs());
             redKey = redKey + "::" + id;
         }
         template.delete(redKey);

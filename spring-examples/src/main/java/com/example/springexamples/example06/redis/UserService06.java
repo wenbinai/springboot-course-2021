@@ -4,6 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 @Service
 @Slf4j
@@ -15,7 +16,7 @@ public class UserService06 {
         return User.builder().id(12L).name("SUN").build();
     }
 
-    @RedisCache(value = "users", ttl = 5)
+    @RedisCache(value = "users", ttl = 60, timeUnit = TimeUnit.SECONDS)
     public List<User> listUsers() {
         log.debug("listUsers()");
         User u = User.builder().id(12L).name("SUN").build();
