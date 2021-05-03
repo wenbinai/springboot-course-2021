@@ -21,6 +21,7 @@
         <module>spring-examples</module>
         <module>springmvc-examples</module>
         <module>backend-examples</module>
+        <module>gateway-examples</module>
     </modules>
 
 </project>

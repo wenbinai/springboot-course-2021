@@ -1,0 +1,22 @@
+### 需启动springmvc-examples完成测试
+### 此请求将被转发至：http://localhost:8080/example01/index
+### 会触发SpringmvcGatewayFilterFactory过滤器
+GET http://localhost/springmvc-api/example01/index
+
+### 将被异步转发给springmvc-examples微服务处理。http://localhost:8080/example09/users/{uid}
+GET http://localhost/api/users/12
+
+### 异步请求，仅耗时2s。为并发异步请求中的最长时长
+GET http://localhost/api/users-async
+
+
+### 同步请求，耗时4s。为同步顺次请求时长之和
+GET http://localhost/api/users
+
+### 模拟微服务处理保存后返回主键
+POST http://localhost/api/users
+Content-Type: application/json
+
+{
+  "name": "LIU"
+}
