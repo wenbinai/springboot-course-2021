@@ -27,7 +27,7 @@ public class RedisAspect {
     private ObjectMapper mapper;
 
     @Around("@annotation(redAn)")
-    public Object redisCache(ProceedingJoinPoint joinPoint, RedisCache redAn) throws Throwable {
+    public Object redisCache(ProceedingJoinPoint joinPoint, RedisCacheable redAn) throws Throwable {
         Method method = getMethod(joinPoint);
         String redKey = redAn.value();
         String key = redAn.key();
@@ -51,11 +51,12 @@ public class RedisAspect {
             } else {
                 template.opsForValue().set(redKey, json, time, redAn.timeUnit());
             }
-         }
+        }
         return returning;
     }
+
     @AfterReturning(value = "@annotation(redAn)", returning = "returning")
-    public void redisPut(JoinPoint joinPoint, RedisPut redAn, Object returning) throws Throwable {
+    public void redisPut(JoinPoint joinPoint, RedisCachePut redAn, Object returning) throws Throwable {
         String redKey = redAn.value();
         String key = redAn.key();
         if (!key.equals("")) {
@@ -69,11 +70,10 @@ public class RedisAspect {
         } else {
             template.opsForValue().set(redKey, json, time, redAn.timeUnit());
         }
-        
     }
 
     @AfterReturning(value = "@annotation(redAn)")
-    public void redisEvict(JoinPoint joinPoint, RedisEvict redAn) {
+    public void redisEvict(JoinPoint joinPoint, RedisCacheEvict redAn) {
         String redKey = redAn.value();
         String key = redAn.key();
         if (!key.equals("")) {
@@ -83,7 +83,7 @@ public class RedisAspect {
         template.delete(redKey);
     }
 
-
+    // 获取别切方法对象
     private Method getMethod(JoinPoint joinPoint) {
         return ((MethodSignature) joinPoint.getSignature()).getMethod();
     }
@@ -91,6 +91,7 @@ public class RedisAspect {
     private final SpelExpressionParser parser = new SpelExpressionParser();
     private final LocalVariableTableParameterNameDiscoverer u = new LocalVariableTableParameterNameDiscoverer();
     private final StandardEvaluationContext context = new StandardEvaluationContext();
+
     // 获取key中SpEL表达式的值
     private String getSpEL(String key, Method method, Object[] args) {
         String[] paraNameArr = u.getParameterNames(method);

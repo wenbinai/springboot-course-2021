@@ -2,7 +2,7 @@
 
 ### Overview
 
-China, Northeast Forestry University, Software Engineering, Frameworks for Web Application, 2021
+China, Northeast Forestry University, Software Engineering, Frameworks for Web Application.
 
 Web系统框架，是东北林业大学软件工程专业第6学期的一门专业选修课。  
 主讲教师：王波老师
@@ -11,12 +11,13 @@ Web系统框架，是东北林业大学软件工程专业第6学期的一门专�
 课程后部分，基于TypeScript/Vue3.0框架的前端MVVM设计模式、组件化设计与单页面开发技术。
 课程的具体技术内容包括：
 - 基于Maven的项目构建与依赖管理
-- 基于Mybatis框架的半自动面向对象持久化技术
-- 基于Spring-Cache/Redis框架的缓存技术
-- ~~基于Spring-data-jpa框架封装JPA规范的持久层技术~~
+- 基于mybatis/mybatis-plus框架的半自动面向对象持久化技术
+- 基于mybatisplus-generator扩展插件的Java逆向代码生成
+- ~~基于spring-data-jpa框架的持久层技术~~
 - 基于SpringMVC框架的控制层技术
 - 基于Spring框架的业务逻辑层技术
-- 基于Spring-Security框架的安全服务技术
+- 基于spring-security框架的安全服务技术
+- 基于JWT/自定义加密数据的分布式单点登录鉴权技术
 - 基于JSR349规范的数据校验技术
 - 基于Timer的定时服务技术
 - 基于AOP的切面技术
@@ -24,9 +25,9 @@ Web系统框架，是东北林业大学软件工程专业第6学期的一门专�
 - 基于自定义异常的全局异常处理
 - 基于Junit5/Spring-Testing框架的单元测试与整合测试
 - 基于spring-cache的缓存技术
+- 基于spring-data-redis框架的Redis缓存技术
 - 基于自定义注解/反射/AOP/spring-data-redis的封装redis缓存框架的实现
-- 基于spring-cloud-gateway的API网关控制
-- 基于WebFlux响应式异步非阻塞框架的网关微服务响应聚合处理
+- 基于spring-cloud-gateway的响应式异步非阻塞API网关控制技术
 - 基于spring-cloud-alibaba-nacos的微服务注册发现
 - 基于node.js/NPM的前端项目构建与管理
 - 基于Vue3.0框架的前端单页面开发技术
@@ -52,7 +53,7 @@ Web系统框架，是东北林业大学软件工程专业第6学期的一门专�
 - Git 2.30
 - MySQL 8.0.22
 
-### Example Collections
+### Examples
 课程代码由单工程多模块组成：按顺序学习
 - /mybatis-examples
 - /spring-examples

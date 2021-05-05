@@ -8,9 +8,12 @@ import java.util.concurrent.TimeUnit;
 
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.METHOD)
-public @interface RedisPut {
+public @interface RedisCacheable {
     String value();
+
     String key() default "";
+
     TimeUnit timeUnit() default TimeUnit.MINUTES;
+
     long ttl() default 5;
 }
