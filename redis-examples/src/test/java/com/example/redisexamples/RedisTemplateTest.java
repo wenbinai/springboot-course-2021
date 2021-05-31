@@ -11,16 +11,11 @@ import org.springframework.data.redis.core.RedisTemplate;
 @Slf4j
 public class RedisTemplateTest {
     @Autowired
-    private RedisTemplate redisTemplate;
+    private RedisTemplate<String, Object> redisTemplate;
 
     @Test
     public void test() {
         User user = User.builder().id(1L).name("BO").build();
         redisTemplate.opsForValue().set("1",user);
-    }
-
-    @Test
-    public void test2() {
-        //User user = redisTemplate.opsForValue().g
     }
 }
