@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: rocketmq-examples
+rocketmq:
+  name-server: 192.168.1.8:9876 # rockertmq服务器地址
+  producer:
+    group: producer # 必须声明否则无法启动
+logging:
+  level:
+    root: info
+    com:
+      example: debug
+  pattern:
+    console: '%-5level %C.%M[%line] - %msg%n'
+

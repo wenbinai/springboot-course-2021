@@ -27,8 +27,10 @@ Web系统框架，是东北林业大学软件工程专业第6学期的一门专�
 - 基于spring-cache的缓存技术
 - 基于spring-data-redis框架的Redis缓存技术
 - 基于自定义注解/反射/AOP/spring-data-redis的封装redis缓存框架的实现
+- 基于redis的高并发场景下的数据同步
 - 基于spring-cloud-gateway的响应式异步非阻塞API网关控制技术
 - 基于spring-cloud-alibaba-nacos的微服务注册发现
+- 基于RocketMQ的异步消息处理与分布式事务
 - 基于node.js/NPM的前端项目构建与管理
 - 基于Vue3.0框架的前端单页面开发技术
 - 基于Vuex的数据状态管理
@@ -62,6 +64,7 @@ Web系统框架，是东北林业大学软件工程专业第6学期的一门专�
 - /redis-examples
 - /backend-examples，为前端项目提供模拟数据互交
 - /gateway-examples  
+- /rocketmq-examples  
 - /jpa-examples
 
 ### Integrations
@@ -76,8 +79,12 @@ Web系统框架，是东北林业大学软件工程专业第6学期的一门专�
 
 ### Updates
 #### 2021.06.03
+/rocketmq-examples，RocketMQ消息队列/分布式事务处理示例
+
+#### 2021.06.03
 /backend-examples  
 修复java long类型数据序列化到前端，js number类型无法完整处理致使精度丢失    
 通过修改MappingJackson2HttpMessageConverter对象配置，将long数据序列化为string实现  
+
 #### 2021.05.31
 /redis-examples，添加基于redis的秒杀示例

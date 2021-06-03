@@ -22,6 +22,7 @@
         <module>springmvc-examples</module>
         <module>backend-examples</module>
         <module>gateway-examples</module>
+        <module>rocketmq-examples</module>
     </modules>
 
 </project>

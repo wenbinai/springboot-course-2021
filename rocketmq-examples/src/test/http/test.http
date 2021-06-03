@@ -1,0 +1,13 @@
+GET http://localhost:8080/api/topic
+
+###
+GET http://localhost:8080/api/topic2
+
+### 模拟事务成功，发送消息
+GET http://localhost:8080/api/tx/commit
+
+### 模拟事务失败，不发送消息
+GET http://localhost:8080/api/tx/rollback
+
+### 模拟延迟等待，半消息
+GET http://localhost:8080/api/tx/unknown
