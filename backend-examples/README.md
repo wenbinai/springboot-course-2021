@@ -2,6 +2,13 @@
 
 后端单微服务整合示例，为前端项目提供支持
 
+### update 2021.06.03
+Java long数据类型超出js number处理范围，致使雪花算法生成的ID传到前端精度丢失/数据错误。  
+其实浏览器可以收到完整long数据，但在转为js对象时按number处理  
+增加JacksonConfiguration，将long序列化为string，即对值加了双引号，则前端按string保存在js对象。  
+通过修改springboot默认创建的MappingJackson2HttpMessageConverter对象，而非创建自定义替代。避免手动设置各种属性时错误。  
+其实是前端js number处理长度的问题，但目前前端没有较好的解决方法解决。  
+
 ### API & Swagger3
 http://114.116.213.241:8080/swagger-ui/index.html  
 超管账号初始化用户名密码：admin/admin  

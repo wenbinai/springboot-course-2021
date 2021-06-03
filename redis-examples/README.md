@@ -20,7 +20,7 @@ redisTemplate.opsForHash()方法，获取操作hash数据类型的对象HashOper
 ### Limited-Time Offers
 秒杀抢购3件套。限流/内存单线程数据库/消息队列
 
-示例仅基于hash数量类型的基本redis的使用。不讨论入口限流/RocketMQ
+示例仅演示基于hash数据类型的基本redis的使用。不讨论入口限流/RocketMQ
 
 OrderService，向redis添加抢购商品数据；抢购方法  
 OrderServiceTest，模拟20K抢购100商品  
