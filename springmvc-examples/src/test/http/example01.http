@@ -30,7 +30,7 @@ Content-Type: application/json
 ###
 GET http://localhost:8080/api/example01/inject
 
-###
-
+### 传统`?`传参，支持传递json字符串
+GET http://localhost:8080/api/example01/search?address={"detail": "12"}
 
 

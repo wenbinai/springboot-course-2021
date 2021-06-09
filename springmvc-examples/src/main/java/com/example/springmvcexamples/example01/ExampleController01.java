@@ -2,7 +2,10 @@ package com.example.springmvcexamples.example01;
 
 import com.example.springmvcexamples.example01.entity.Address;
 import com.example.springmvcexamples.vo.ResultVO;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.web.bind.annotation.*;
 
@@ -56,6 +59,18 @@ public class ExampleController01 {
                        @RequestHeader HttpHeaders headers) {
         log.debug(request.getRequestURI());
         log.debug(String.valueOf(headers));
+    }
+
+    @Autowired
+    private ObjectMapper mapper;
+
+    // @RequestParam用于接收传统的`?`传参
+    @GetMapping("search")
+    public ResultVO getJson(@RequestParam String address) throws JsonProcessingException {
+        log.debug(address);
+        Address a = mapper.readValue(address, Address.class);
+        log.debug(a.getDetail());
+        return ResultVO.success(Map.of("name", "BO"));
     }
 
 
