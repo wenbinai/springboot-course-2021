@@ -76,6 +76,9 @@ public class SpringCacheConfig {
         Jackson2JsonRedisSerializer<Object> serializer = new Jackson2JsonRedisSerializer<>(Object.class);
         // 创建jackson配置，对象
         ObjectMapper mapper = new ObjectMapper();
+        // 解决jackson2无法反序列化LocalDateTime的问题
+        mapper.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
+        mapper.registerModule(new JavaTimeModule());
         // 序列化时，忽略空值属性。
         mapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
         // 反序列化时，忽略不存在属性。即，缓存中有而类中没有的属性，不会异常
